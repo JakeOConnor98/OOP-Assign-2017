@@ -102,11 +102,11 @@ public class Snake_Game extends JPanel implements ActionListener, KeyListener, R
            start();
            collisionFood();
            collisionBorder();
-           StartMenu s = new StartMenu();
+
 
 
        }
-       //This places a scoreboard on the jframe
+       //This places a scoreboard on the Jframe
        private static final Font SMALL_FONT = new Font("Times New Roman", Font.BOLD, 20);
 
 
@@ -183,7 +183,7 @@ public class Snake_Game extends JPanel implements ActionListener, KeyListener, R
             if(s.getLocation().getX() == f.getX() || s.getLocation().getY() == f.getY()){
                 JOptionPane.showInputDialog("Nice");
                 collisionFood();
-               // score++;
+                score++;
 
             }
        }
@@ -227,52 +227,28 @@ public class Snake_Game extends JPanel implements ActionListener, KeyListener, R
 
                if(!s.getDirection().equals("Left"))
                    s.setDirection("Right");
-               //s.setLocation((int)s.getLocation().getX()+DELTA_X,(int)s.getLocation().getY());
 
-               /*moves++;
-               Right = true;
-               if (!Left) {
-                   Right = true;
-               } else {
-                   Right = false;
-                   Left = true;
-               }
-
-               Up = false;
-               Down = false;*/
 
 
            }
 
 
-           if (e.getKeyCode() == KeyEvent.VK_LEFT)
+           if (e.getKeyCode() == KeyEvent.VK_LEFT){
+
                if(!s.getDirection().equals("Right"))
                    s.setDirection("Left");
 
-               //s.setLocation((int)s.getLocation().getX()-DELTA_X,(int)s.getLocation().getY());
-           {
-               //try to complete this
 
-               /*moves++;
-               Left = true;
-               if (!Right) {
-                   Left = true;
-               } else {
-                   Left = false;
-                   Right = true;
-               }
-
-               Up = false;
-               Down = false;*/
 
 
            }
 
 
-           if (e.getKeyCode() == KeyEvent.VK_UP)
-               if(!s.getDirection().equals("Down"))
-                   s.setDirection("Up");
+           if (e.getKeyCode() == KeyEvent.VK_UP) {
 
+               if (!s.getDirection().equals("Down"))
+                   s.setDirection("Up");
+           }
 
 
 
@@ -286,18 +262,6 @@ public class Snake_Game extends JPanel implements ActionListener, KeyListener, R
 
                if(!s.getDirection().equals("Up"))
                     s.setDirection("Down");
-
-               /*moves++;
-               Down = true;
-               if (!Up) {
-                   Down = true;
-               } else {
-                   Down = false;
-                   Up = true;
-               }
-
-               Right = false;
-               Left = false;*/
 
 
            }

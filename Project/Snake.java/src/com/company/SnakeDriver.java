@@ -7,8 +7,7 @@ public class SnakeDriver {
 
          new Snake_Game();
          Food Food = new Food();
-         StartMenu startMenu = new StartMenu();
-         startMenu.add(startMenu);
+
     }
 
 
