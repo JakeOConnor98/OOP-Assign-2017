@@ -19,7 +19,10 @@ public class Food extends JPanel{
 
 
         int x = (int) getLocation().getX();
+        //int x = (int) Math.random();
         int y = (int) getLocation().getY();
+        //int y = (int) Math.random();
+
         graphics.fillRect(x, y, 20, 20);}
 
     public void paintComponent(Graphics g) {

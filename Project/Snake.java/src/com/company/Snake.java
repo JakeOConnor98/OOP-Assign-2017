@@ -69,8 +69,6 @@ class BodyPart extends JPanel{
         graphics.setColor(Color.RED);
         int x = (int)getLocation().getX();
         int y = (int)getLocation().getY();
-        //int y = 0;
-        //int x = 0;
         graphics.fillRect(x, y, 20, 20);
 
 
