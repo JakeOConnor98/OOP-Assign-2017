@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="106.08333333333331" y="0.0">com.company.BodyPart</node>
+    <node x="316.75" y="725.0">com.company.SnakeDriver</node>
+    <node x="107.57407407407408" y="380.0">com.company.Snake_Game</node>
+    <node x="274.0" y="190.0">com.company.Food</node>
+    <node x="0.0" y="146.0">com.company.Snake</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.company.SnakeDriver" target="com.company.Snake_Game">
+      <point x="-57.0" y="-26.0" />
+      <point x="345.25" y="700.0" />
+      <point x="236.57407407407408" y="700.0" />
+      <point x="0.0" y="147.5" />
+    </edge>
+    <edge source="com.company.SnakeDriver" target="com.company.Food">
+      <point x="57.0" y="-26.0" />
+      <point x="459.25" y="700.0" />
+      <point x="450.4398148148148" y="700.0" />
+      <point x="450.4398148148148" y="355.0" />
+      <point x="485.75" y="355.0" />
+      <point x="90.75" y="48.0" />
+    </edge>
+    <edge source="com.company.Snake" target="com.company.BodyPart">
+      <point x="0.0" y="-92.0" />
+      <point x="121.0" y="121.0" />
+      <point x="146.41666666666663" y="121.0" />
+      <point x="-80.66666666666667" y="48.0" />
+    </edge>
+    <edge source="com.company.Snake_Game" target="com.company.Snake">
+      <point x="-107.5" y="-147.5" />
+      <point x="129.07407407407408" y="355.0" />
+      <point x="60.5" y="355.0" />
+      <point x="-60.5" y="92.0" />
+    </edge>
+    <edge source="com.company.Snake_Game" target="com.company.BodyPart">
+      <point x="-21.5" y="-147.5" />
+      <point x="215.07407407407408" y="355.0" />
+      <point x="252.5" y="355.0" />
+      <point x="252.5" y="121.0" />
+      <point x="227.08333333333331" y="121.0" />
+      <point x="1.4210854715202004E-14" y="48.0" />
+    </edge>
+    <edge source="com.company.Snake_Game" target="com.company.Food">
+      <point x="64.5" y="-147.5" />
+      <point x="301.0740740740741" y="355.0" />
+      <point x="304.25" y="355.0" />
+      <point x="-90.75" y="48.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8" x="460.875" y="384.75" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -39,14 +39,16 @@ public class Snake_Game extends JPanel implements ActionListener, KeyListener, R
 
 
 
+
+
         JMenu menu, submenu;
         {
             //Thsi is the Menu Bar
             JMenuBar mb = new JMenuBar();
-            //Create the menu
+            //Create the JMenu
             menu = new JMenu("Options");
             menu.add(menu);
-            //Create submenu
+            //Create a submenu
             submenu = new JMenu("Save");
             submenu = new JMenu("Quit");
             menu.add(submenu);
@@ -64,7 +66,7 @@ public class Snake_Game extends JPanel implements ActionListener, KeyListener, R
     }
 
 
-    //This is the JFrame
+    //This is the JFrame of the game
 
        public Snake_Game() {
            frame = new JFrame();
@@ -75,18 +77,13 @@ public class Snake_Game extends JPanel implements ActionListener, KeyListener, R
 
            c.setBackground(Color.BLACK);
 
-           //JButton button = new JButton();
-           //button.setText("Start Game");
 
            s = new Snake();
            b = new BodyPart();
            f = new Food();
-           //m = new Menu();
 
 
-           //s.draw(g);
 
-           //panel.add(button);
 
            s.setLocation(220, 200);
            b.setLocation(200, 200);
