@@ -1,3 +1,15 @@
+/** This class models a snake game using a GUI
+ * It will hold the attributes of the snake on how it will be able to move on the JFrame
+ * Collision with the borders and the food(not working)
+ *
+ * @author Jake O' Connor
+ * @version 2.0
+ *
+ *
+ */
+
+
+
 package com.company;
 
 
@@ -29,8 +41,8 @@ public class Snake_Game extends JPanel implements ActionListener, KeyListener, R
        final int DELTA_Y = 20;
        private int score;
 
-       Thread theThread;//Added by JB to paint screen continuously while still dealing with key events
-       boolean gameOn; //Added by JB to guard the game loop
+       Thread theThread;/**Added by JB to paint screen continuously while still dealing with key events*/
+       boolean gameOn; /**Added by JB to guard the game loop*/
        int i=0;
        Container c;
        JFrame frame;
@@ -40,10 +52,10 @@ public class Snake_Game extends JPanel implements ActionListener, KeyListener, R
 
 
 
-
+    /**This will display the JMenuBar*/
         JMenu menu, submenu;
         {
-            //Thsi is the Menu Bar
+            //This is the Menu Bar
             JMenuBar mb = new JMenuBar();
             //Create the JMenu
             menu = new JMenu("Options");
@@ -66,7 +78,7 @@ public class Snake_Game extends JPanel implements ActionListener, KeyListener, R
     }
 
 
-    //This is the JFrame of the game
+    /**This is the JFrame of the game*/
 
        public Snake_Game() {
            frame = new JFrame();
@@ -106,12 +118,12 @@ public class Snake_Game extends JPanel implements ActionListener, KeyListener, R
 
 
        }
-       //This places a scoreboard on the Jframe
+       /**This places a scoreboard on the Jframe*/
        private static final Font SMALL_FONT = new Font("Times New Roman", Font.BOLD, 20);
 
 
 
-       //This paints the Snake on the JFrame
+       /**This paints the Snake on the JFrame*/
     public void paint(Graphics g) {
 
         System.out.println("Paint call " + i++);
@@ -123,20 +135,20 @@ public class Snake_Game extends JPanel implements ActionListener, KeyListener, R
 
         if(s.getDirection().equals("Right")) {
 
-            //JB - you need to add the code so that the body of the snake will move into the area of the screen
+            /**JB - you need to add the code so that the body of the snake will move into the area of the screen
             //that was previously occupied by the head of the snake
             //and you need to expand on this later to ensure all parts of the body move into the positions
             //that were occupied by the parts ahead of them in the snakes body
 
-            //JB - the code below will ensure the snakes head moves to the right when the right key is pressed
-            //The thread then ensures it will continue to move automatically every 500ms
+            /**JB - the code below will ensure the snakes head moves to the right when the right key is pressed
+            /**The thread then ensures it will continue to move automatically every 500ms
 
-            /* Note the current location of the snakes head and make a copy of it*/
+            /** Note the current location of the snakes head and make a copy of it*/
 
             s.setLocation((int) s.getLocation().getX() + DELTA_X, (int) s.getLocation().getY());
 
 
-            /*Now move the first part of the snakes body to this location*/
+            /**Now move the first part of the snakes body to this location*/
 
             b.setLocation((int) b.getLocation().getX() + DELTA_X, (int) b.getLocation().getY());
 
@@ -172,12 +184,17 @@ public class Snake_Game extends JPanel implements ActionListener, KeyListener, R
 
     }
 
-        /*Put in tests to see whether the snakes head has collided with the food, if it has then update the
-        players (or snake's) score to reflect this and make the food disappear from the screen, and then spawn
-        another body part for the snake and generate another piece of food in a random location on the screen
-        (making sure the piece of food doesn't overlap the snake (a little complexity, using a loop)
+    /** This method
+     * Put in tests to see whether the snakes head has collided with the food, if it has then update the
+     * players (or snake's) score to reflect this and make the food disappear from the screen, and then spawn
+     * another body part for the snake and generate another piece of food in a random location on the screen
+     *(making sure the piece of food doesn't overlap the snake (a little complexity, using a loop)
+     * Maybe think about creating a Player class with a name and score attribute?
+     *
+     *
+     */
 
-        Maybe think about creating a Player class with a name and score attribute?*/
+
 
         public void collisionFood(){
             if(s.getLocation().getX() == f.getX() || s.getLocation().getY() == f.getY()){
@@ -212,10 +229,16 @@ public class Snake_Game extends JPanel implements ActionListener, KeyListener, R
        }
 
        @Override
+       /**
+        * @see KeyListener
+        */
+
        public void keyTyped(KeyEvent e) {
            System.out.println("Got here!");
        }
 
+
+       /**This methods will allow you to press a key to make the snake go in one direction but not the other eg. Right and not Left*/
        @Override
        public void keyPressed(KeyEvent e) {
 
@@ -223,7 +246,7 @@ public class Snake_Game extends JPanel implements ActionListener, KeyListener, R
 
            if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 
-               //JB - as long as the current direction isn't left, you can move the snake to the right
+               /**JB - as long as the current direction isn't left, you can move the snake to the right*/
 
                if(!s.getDirection().equals("Left"))
                    s.setDirection("Right");
@@ -258,7 +281,7 @@ public class Snake_Game extends JPanel implements ActionListener, KeyListener, R
 
 
            {
-               //JB - as long as the current direction isn't up, you can move the snake downwards
+               /**JB - as long as the current direction isn't up, you can move the snake downwards*/
 
                if(!s.getDirection().equals("Up"))
                     s.setDirection("Down");
@@ -276,14 +299,14 @@ public class Snake_Game extends JPanel implements ActionListener, KeyListener, R
 
        }
 
-       //JB - called automatically by the start() method below. Because the game needs to draw information onto the screen
-       //and listen for keyboard/other events at the same time, an extra thread of execution is recommended. The run()
-       //method basically ensures that the pane of the JFrame window gets painted/updated every 20 milliseconds
-       //giving us 50 frames per second as such. The thread sleeps in between these updates meaning that the rest
-       //of the time events can be listened for and handled without any conflict
+       /**JB - called automatically by the start() method below. Because the game needs to draw information onto the screen
+        * and listen for keyboard/other events at the same time, an extra thread of execution is recommended. The run()
+       *  method basically ensures that the pane of the JFrame window gets painted/updated every 20 milliseconds
+       *  giving us 50 frames per second as such. The thread sleeps in between these updates meaning that the rest
+       *  of the time events can be listened for and handled without any conflict
 
-       //thread really needed only because we need it to continually repaint() the screen if we want to draw the bullets moving as well
-       //as the enemy invaders, otherwise we could have done without it as the key press actions could be set up to make calls to paint() as they go
+       * thread really needed only because we need it to continually repaint() the screen if we want to draw the bullets moving as well
+       * as the enemy invaders, otherwise we could have done without it as the key press actions could be set up to make calls to paint() as they go*/
 
        public void run()
        {
@@ -310,9 +333,9 @@ public class Snake_Game extends JPanel implements ActionListener, KeyListener, R
 
        }
 
-       //JB - As the class implements the Runnable interface, this method will be called automatically when an instance of it is created
-       //in the main() above. It basically creates a new Thread object, links it with the game instance and sets the thread in motion
-       //with the call to start() on the thread reference
+       /**JB - As the class implements the Runnable interface, this method will be called automatically when an instance of it is created
+         *in the main() above. It basically creates a new Thread object, links it with the game instance and sets the thread in motion
+         *with the call to start() on the thread reference*/
 
        public void start()
        {
