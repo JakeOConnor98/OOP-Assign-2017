@@ -14,7 +14,7 @@ public class Food extends JPanel{
         System.out.println("Getting called");
         graphics.setColor(Color.WHITE);
 
-        /*If you want the food to appear at random locations on the game screen then you will have to
+        /**If you want the food to appear at random locations on the game screen then you will have to
         give random values to x and y here, using the Math.random() */
 
 
